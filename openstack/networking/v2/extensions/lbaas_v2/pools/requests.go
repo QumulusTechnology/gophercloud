@@ -22,6 +22,7 @@ type ListOpts struct {
 	TenantID       string `q:"tenant_id"`
 	ProjectID      string `q:"project_id"`
 	AdminStateUp   *bool  `q:"admin_state_up"`
+	TlsEnabled     *bool  `q:"tls_enabled"`
 	Name           string `q:"name"`
 	ID             string `q:"id"`
 	LoadbalancerID string `q:"loadbalancer_id"`
@@ -116,6 +117,9 @@ type CreateOpts struct {
 	// Omit this field to prevent session persistence.
 	Persistence *SessionPersistence `json:"session_persistence,omitempty"`
 
+	// When true connections to backend member servers will use TLS encryption
+	TlsEnabled *bool `json:"admin_state_up,omitempty"`
+
 	// The administrative state of the Pool. A valid value is true (UP)
 	// or false (DOWN).
 	AdminStateUp *bool `json:"admin_state_up,omitempty"`
@@ -168,6 +172,10 @@ type UpdateOpts struct {
 
 	// The administrative state of the Pool. A valid value is true (UP)
 	// or false (DOWN).
+	TlsEnabled *bool `json:"tls_enabled,omitempty"`
+
+	// The administrative state of the Pool. A valid value is true (UP)
+	// or false (DOWN).
 	AdminStateUp *bool `json:"admin_state_up,omitempty"`
 }
 
@@ -212,6 +220,7 @@ type ListMembersOpts struct {
 	Name         string `q:"name"`
 	Weight       int    `q:"weight"`
 	AdminStateUp *bool  `q:"admin_state_up"`
+	TlsEnabled   *bool  `q:"tls_enabled"`
 	TenantID     string `q:"tenant_id"`
 	Address      string `q:"address"`
 	ProtocolPort int    `q:"protocol_port"`
@@ -287,6 +296,10 @@ type CreateMemberOpts struct {
 	// The administrative state of the Pool. A valid value is true (UP)
 	// or false (DOWN).
 	AdminStateUp *bool `json:"admin_state_up,omitempty"`
+
+	// The administrative state of the Pool. A valid value is true (UP)
+	// or false (DOWN).
+	TlsEnabled *bool `json:"tls_enabled,omitempty"`
 }
 
 // ToMemberCreateMap builds a request body from CreateMemberOpts.
@@ -334,6 +347,9 @@ type UpdateMemberOpts struct {
 	// The administrative state of the Pool. A valid value is true (UP)
 	// or false (DOWN).
 	AdminStateUp *bool `json:"admin_state_up,omitempty"`
+
+	// When true connections to backend member servers will use TLS encryption
+	TlsEnabled *bool `json:"tls_enabled,omitempty"`
 }
 
 // ToMemberUpdateMap builds a request body from UpdateMemberOpts.

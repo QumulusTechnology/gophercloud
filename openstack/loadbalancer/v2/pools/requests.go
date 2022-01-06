@@ -452,7 +452,6 @@ type BatchUpdateMemberOpts struct {
 	// or false (DOWN).
 	AdminStateUp *bool `json:"admin_state_up,omitempty"`
 
-	
 	// When true connections to backend member servers will use TLS encryption
 	TlsEnabled *bool `json:"tls_enabled,omitempty"`
 
