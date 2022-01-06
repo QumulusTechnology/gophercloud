@@ -77,6 +77,9 @@ type Pool struct {
 	// The administrative state of the Pool, which is up (true) or down (false).
 	AdminStateUp bool `json:"admin_state_up"`
 
+	// When true connections to backend member servers will use TLS encryption
+	TlsEnabled bool `json:"tls_enabled"`
+
 	// Pool name. Does not have to be unique.
 	Name string `json:"name"`
 
@@ -192,6 +195,9 @@ type Member struct {
 
 	// The administrative state of the member, which is up (true) or down (false).
 	AdminStateUp bool `json:"admin_state_up"`
+
+	// When true connections to backend member servers will use TLS encryption
+	TlsEnabled bool `json:"tls_enabled"`
 
 	// Owner of the Member.
 	ProjectID string `json:"project_id"`
