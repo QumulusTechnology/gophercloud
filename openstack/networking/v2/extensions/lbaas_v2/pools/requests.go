@@ -197,25 +197,25 @@ type UpdateOpts struct {
 	AdminStateUp *bool `json:"admin_state_up,omitempty"`
 
 	// A list of ALPN protocols. Available protocols: http/1.0, http/1.1, h2.
-	AlpnProtocols []string `json:"alpn_protocols,omitempty"`
+	AlpnProtocols *[]string `json:"alpn_protocols,omitempty"`
 
 	// The reference of the key manager service secret containing a PEM format CA certificate bundle for tls_enabled pools.
-	CaTlsContainerRef string `json:"ca_tls_container_ref,omitempty"`
+	CaTlsContainerRef *string `json:"ca_tls_container_ref,omitempty"`
 
 	// The reference of the key manager service secret containing a PEM format CA revocation list file for tls_enabled pools.
-	CrlContainerRef string `json:"crl_container_ref,omitempty"`
+	CrlContainerRef *string `json:"crl_container_ref,omitempty"`
 
 	// When true connections to backend member servers will use TLS encryption
-	TlsEnabled bool `json:"tls_enabled,omitempty"`
+	TlsEnabled *bool `json:"tls_enabled,omitempty"`
 
 	// List of ciphers in OpenSSL format (colon-separated). See https://www.openssl.org/docs/man1.1.1/man1/ciphers.html.
-	TlsCiphers string `json:"tls_ciphers,omitempty"`
+	TlsCiphers *string `json:"tls_ciphers,omitempty"`
 
 	// The reference to the key manager service secret containing a PKCS12 format certificate/key bundle for tls_enabled pools for TLS client authentication to the member servers.
-	TlsContainerRef string `json:"tls_container_ref,omitempty"`
+	TlsContainerRef *string `json:"tls_container_ref,omitempty"`
 
 	// A list of TLS protocol versions. Available versions: SSLv3, TLSv1, TLSv1.1, TLSv1.2, TLSv1.3
-	TlsVersions []string `json:"tls_versions,omitempty"`
+	TlsVersions *[]string `json:"tls_versions,omitempty"`
 }
 
 // ToPoolUpdateMap builds a request body from UpdateOpts.
