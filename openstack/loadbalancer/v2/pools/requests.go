@@ -22,6 +22,7 @@ type ListOpts struct {
 	Protocol       string `q:"protocol"`
 	ProjectID      string `q:"project_id"`
 	AdminStateUp   *bool  `q:"admin_state_up"`
+	TlsEnabled     *bool  `q:"tls_enabled"`
 	Name           string `q:"name"`
 	ID             string `q:"id"`
 	LoadbalancerID string `q:"loadbalancer_id"`
@@ -122,6 +123,9 @@ type CreateOpts struct {
 	// or false (DOWN).
 	AdminStateUp *bool `json:"admin_state_up,omitempty"`
 
+	// When true connections to backend member servers will use TLS encryption
+	TlsEnabled *bool `json:"tls_enabled,omitempty"`
+
 	// Members is a slice of BatchUpdateMemberOpts which allows a set of
 	// members to be created at the same time the pool is created.
 	//
@@ -189,6 +193,9 @@ type UpdateOpts struct {
 	// or false (DOWN).
 	AdminStateUp *bool `json:"admin_state_up,omitempty"`
 
+	// When true connections to backend member servers will use TLS encryption
+	TlsEnabled *bool `json:"tls_enabled,omitempty"`
+
 	// Tags is a set of resource tags. New in version 2.5
 	Tags *[]string `json:"tags,omitempty"`
 }
@@ -234,6 +241,7 @@ type ListMembersOpts struct {
 	Name         string `q:"name"`
 	Weight       int    `q:"weight"`
 	AdminStateUp *bool  `q:"admin_state_up"`
+	TlsEnabled   *bool  `q:"tls_enabled"`
 	ProjectID    string `q:"project_id"`
 	Address      string `q:"address"`
 	ProtocolPort int    `q:"protocol_port"`
@@ -306,6 +314,9 @@ type CreateMemberOpts struct {
 	// or false (DOWN).
 	AdminStateUp *bool `json:"admin_state_up,omitempty"`
 
+	// When true connections to backend member servers will use TLS encryption
+	TlsEnabled *bool `json:"tls_enabled,omitempty"`
+
 	// Is the member a backup? Backup members only receive traffic when all
 	// non-backup members are down.
 	// Requires microversion 2.1 or later.
@@ -367,6 +378,9 @@ type UpdateMemberOpts struct {
 	// The administrative state of the Pool. A valid value is true (UP)
 	// or false (DOWN).
 	AdminStateUp *bool `json:"admin_state_up,omitempty"`
+
+	// When true connections to backend member servers will use TLS encryption
+	TlsEnabled *bool `json:"tls_enabled,omitempty"`
 
 	// Is the member a backup? Backup members only receive traffic when all
 	// non-backup members are down.
@@ -437,6 +451,10 @@ type BatchUpdateMemberOpts struct {
 	// The administrative state of the Pool. A valid value is true (UP)
 	// or false (DOWN).
 	AdminStateUp *bool `json:"admin_state_up,omitempty"`
+
+	
+	// When true connections to backend member servers will use TLS encryption
+	TlsEnabled *bool `json:"tls_enabled,omitempty"`
 
 	// Is the member a backup? Backup members only receive traffic when all
 	// non-backup members are down.
