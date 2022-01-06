@@ -137,7 +137,7 @@ type CreateOpts struct {
 	CrlContainerRef string `json:"crl_container_ref,omitempty"`
 
 	// When true connections to backend member servers will use TLS encryption
-	TlsEnabled bool `json:"tls_enabled,omitempty"`
+	TlsEnabled *bool `json:"tls_enabled,omitempty"`
 
 	// List of ciphers in OpenSSL format (colon-separated). See https://www.openssl.org/docs/man1.1.1/man1/ciphers.html.
 	TlsCiphers string `json:"tls_ciphers,omitempty"`
@@ -225,7 +225,7 @@ type UpdateOpts struct {
 	CrlContainerRef string `json:"crl_container_ref,omitempty"`
 
 	// When true connections to backend member servers will use TLS encryption
-	TlsEnabled bool `json:"tls_enabled,omitempty"`
+	TlsEnabled *bool `json:"tls_enabled,omitempty"`
 
 	// List of ciphers in OpenSSL format (colon-separated). See https://www.openssl.org/docs/man1.1.1/man1/ciphers.html.
 	TlsCiphers string `json:"tls_ciphers,omitempty"`
